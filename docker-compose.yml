@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: my-postgres
+    environment:
+      POSTGRES_USER: yourusername
+      POSTGRES_PASSWORD: yourpassword
+      POSTGRES_DB: yourdatabase
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+
+  app:
+    build: .
+    container_name: my-go-app
+    environment:
+      SERVICE_HOST: "0.0.0.0"
+      HTTP_PORT: ":8080"
+      POSTGRES_HOST: "db" # Refers to the service name `db`
+      POSTGRES_PORT: "5432"
+      POSTGRES_USER: "yourusername"
+      POSTGRES_PASSWORD: "yourpassword"
+      POSTGRES_DATABASE: "yourdatabase"
+      OFFSET: "0"
+      LIMIT: "10"
+      SECRET_KEY: "secret"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

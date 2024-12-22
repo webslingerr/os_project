@@ -1,0 +1,35 @@
+curl -X POST http://localhost:8080/register \
+     -H "Content-Type: application/json" \
+     -d '{
+           "email": "mukhammadali@example.com",
+           "fullname": "Mukhammadali Sadriev",
+           "password": "helloworld1234",
+           "address": "1234 Elm Street, Springfield, IL",
+           "type": "Owner"
+         }'
+
+
+curl -X POST http://localhost:8080/login \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "shokhrukhsafarov@example.com",
+  "password": "helloworld"
+}'
+
+curl -X POST http://localhost:8080/post \
+     -H "Content-Type: application/json" \
+     -d '{
+           "real_estate_type": "House",
+           "service_type": "Rent",
+           "user_id": "086520ea-b9ab-4200-b38a-40e60c5c0dfb",
+           "title": "Spacious 3 Bedroom House for Rent",
+           "description": "A beautiful and spacious house with a large garden and modern amenities.",
+           "region": "Tashkent",
+           "address": "5678 Oak Avenue, Metropolis, NY",
+           "contact_details": "contact@realestate.com",
+           "area": 2500,
+           "number_of_rooms": 3,
+           "floor_number": 1,
+           "rent_price": 2000000.00,
+           "special_benefits": ["Swimming Pool", "Gym Access"]
+         }'
