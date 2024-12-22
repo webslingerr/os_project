@@ -1,23 +1,5 @@
 # API Documentation
 
-## Table of Contents
-- [Register](#register)
-  - [Request](#register-request)
-  - [Response](#register-response)
-- [Login](#login)
-  - [Request](#login-request)
-  - [Response](#login-response)
-- [Create Post](#create-post)
-  - [Request](#create-post-request)
-  - [Response](#create-post-response)
-- [Get Post by ID](#get-post-by-id)
-  - [Response](#get-post-by-id-response)
-- [Get List of Posts](#get-list-of-posts)
-  - [Request](#get-list-of-posts-request)
-  - [Response](#get-list-of-posts-response)
-
----
-
 ## /register
 **POST Method**
 
@@ -181,9 +163,6 @@
 ### Get List of Posts Response
 ```json
 {
-  "Status": 200,
-  "Description": "Get list post",
-  "Data": {
     "count": 1,
     "posts": [
       {
@@ -209,7 +188,6 @@
       }
     ]
   }
-}
 ```
 
 ### Notes
@@ -220,3 +198,21 @@
   - `service_type`
   - `title` pass to search field
 - If `limit` is not provided, the default value is 10.
+
+---
+
+## /post/status/{id}
+**PUT Method**
+
+### Update Post Status Request
+```json
+{
+  "status": "accepted"
+}
+```
+
+- Empty Response
+
+### Notes
+- The `status` field is required.
+- If the post is accepted, the `status` should be set to `accepted`.
