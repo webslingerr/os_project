@@ -1,13 +1,19 @@
 # API Documentation
 
-## Endpoints
+## Table of Contents
+- [Register](#register)
+  - [Request](#register-request)
+  - [Response](#register-response)
+- [Login](#login)
+  - [Request](#login-request)
+  - [Response](#login-response)
 
-### 1. **/register**
+---
 
-**Method:** `POST`
+## /register
+**POST Method**
 
-#### Example
-**Request:**
+### Register Request
 ```json
 {
   "email": "example@example.com",
@@ -18,13 +24,13 @@
 }
 ```
 
-**Response:**
+### Register Response
 ```json
 {
   "id": "abc123",
   "email": "example@example.com",
   "fullname": "John Doe",
-  "password": "hashed_password",
+  "password": "password123",
   "address": "123 Main Street",
   "type": "Client",
   "created_at": "2024-12-22T12:00:00Z",
@@ -32,12 +38,12 @@
 }
 ```
 
-### 2. **/login**
+---
 
-**Method:** `POST`
+## /login
+**POST Method**
 
-#### Example
-**Request:**
+### Login Request
 ```json
 {
   "email": "example@example.com",
@@ -45,16 +51,15 @@
 }
 ```
 
-**Response:**
+### Login Response
 ```json
 {
   "id": "abc123",
   "email": "example@example.com",
   "fullname": "John Doe",
-  "password": "hashed_password",
+  "password": "password123",
   "address": "123 Main Street",
   "type": "Client",
   "created_at": "2024-12-22T12:00:00Z",
   "updated_at": "2024-12-22T12:00:00Z"
 }
-```
